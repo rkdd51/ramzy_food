@@ -1,0 +1,51 @@
+
+● - What is `NPM`?
+--> The main goal, as you touched upon, is automated dependency and package management. This means that you can specify all of your project's dependencies inside your package.json file, then any time you (or anyone else) needs to get started with your project they can just run npm install and immediately have all of the dependencies installed. On top of this, it is also possible to specify what versions your project depends upon to prevent updates from breaking your project.
+
+It is definitely possible to manually download your libraries, copy them into the correct directories, and use them that way. However, as your project (and list of dependencies) grows, this will quickly become time-consuming and messy. It also makes collaborating and sharing your project that much more difficult.
+
+Hopefully this makes it more clear what the purpose of npm is. As a Javascript developer (both client-side and server-side), npm is an indispensable tool in my workflow
+
+● - What is `Parcel/Webpack`? Why do we need it?
+--> Parcel and webpack are the bundlers used mostly for JavaScript or Typescript code that helps you to minify, clean, and make your code compact so that it becomes easier to send a request or receive the response from the server when it usually takes you to transfer multiple files without using any bundler for loading the page of your application.Both of these bundlers substantially reduce the time it takes for the transfer of data and files to the server from the application. Along with that both bundlers parcel and webpack remove the unnecessary comments, new lines, any kind of block delimiters, and white spaces while the functionality of the code remains unchanged.
+
+● - What is `.parcel-cache` ?
+cache folder (or . parcel-cache in parcel v2) stores information about your project when parcel builds it, so that when it rebuilds, it doesn't have to re-parse and re-analyze everything from scratch. It's a key reason why parcel can be so fast in development mode.
+
+
+● - What is `npx` ?
+NPX: The npx stands for Node Package Execute and it comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that can execute any package that you want from the npm registry without even installing that package
+
+
+● - What is difference between `dependencies` vs `devDependencies` ?
+The difference between these two, is that devDependencies are modules which are only required during development, while dependencies are modules which are also required at runtime.
+
+
+● - What is Tree Shaking?
+Tree shaking is a term commonly used within a JavaScript context to describe the removal of dead code.
+
+It relies on the import and export statements to detect if code modules are exported and imported for use between JavaScript files.
+
+In modern JavaScript applications, we use module bundlers (e.g., webpack or Rollup) to automatically remove dead code when bundling multiple JavaScript files into single files. This is important for preparing code that is production ready, for example with clean structures and minimal file size.
+
+
+● - What is Hot Module Replacement?
+Hot Module Replacement (or HMR) is one of the most useful features offered by webpack. It allows all kinds of modules to be updated at runtime without the need for a full refresh. 
+
+
+● - What is `.gitignore`? What should we add and not add into it?
+The . gitignore file tells Git which files to ignore when committing your project to the GitHub repository. gitignore is located in the root directory of your repo. The .gitignore file itself is a plain text document.
+
+● - What is the difference between `package.json` and `package-lock.json` ?
+ ---> package-lock.json: records the exact version of each installed package which allows you to re-install them. Future installs will be able to build an identical dependency tree.
+
+   package.json: records the minimum version you app needs. If you update the versions of a particular package, the change is not going to be reflected here
+
+
+● - What is the `dist` folder?
+-->  The /dist folder contains the minimized version of the source code. The code present in the /dist folder is actually the code which is used on production web applications. Along with the minified code, the /dist folder also comprises of all the compiled modules that may or may not be used with other systems.
+
+
+● - What is `browserlists` ?
+ -->  Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. 
+

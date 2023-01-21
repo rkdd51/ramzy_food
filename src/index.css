@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.nav-items > ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-items > ul > li {
+  padding: 15px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+.imageOfCard {
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+}
+.card {
+  border: 1px solid black;
+  height: inherit;
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.resCard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  margin-top: 10px;
+}
+
+.shimmer {
+  height: 350px;
+  width: 200px;
+  background-color: grey;
+  margin: 20px;
+}
