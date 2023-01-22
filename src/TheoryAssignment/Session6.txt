@@ -1,0 +1,42 @@
+)---------------> What are Microservices ?
+-->Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are
+
+Independently deployable
+Loosely coupled
+Organized around business capabilities
+Owned by a small team
+Highly maintainable and testable
+The microservice architecture enables the rapid, frequent and reliable delivery of large, complex applications. It also enables an organization to evolve its technology stack.
+
+
+)------------> What is Monolith architecture?
+-->A monolithic architecture is a traditional model of a software program, which is built as a unified unit that is self-contained and independent from other applications. The word “monolith” is often attributed to something large and glacial, which isn't far from the truth of a monolith architecture for software design.
+
+)----------------->JS Assignment vs JS Expression ?
+In JavaScript, an assignment is used to set the value of a variable. For example:
+
+
+let x = 5;
+This assigns the value 5 to the variable x.
+
+An expression, on the other hand, is a piece of code that produces a value. For example:
+
+
+let y = 2 + 2;
+This expression 2 + 2 evaluates to 4 and assigns the value 4 to the variable y.
+
+Expressions can also be used on the right-hand side of an assignment, like this:
+
+
+let z = x + y;
+This expression x + y evaluates to 5 + 4 = 9 and assigns the value 9 to the variable z.
+
+So, in short, an assignment is used to set a value to a variable and an expression is used to evaluate and produce a value.
+
+
+)-----------------> Why do we need to convert API calls to json while using fetch ?
+---->API calls made with the Fetch API often return data in the form of a Response object, which is not directly usable in JavaScript. JSON is a common format for data exchange and is natively supported by JavaScript. Converting the Response object to JSON allows the data to be easily accessed and manipulated in JavaScript. Additionally, many APIs return data in JSON format, so converting the Response object to JSON allows it to be used directly without additional parsing.
+
+
+)------------->What is CORS ?
+--->CORS stands for "Cross-Origin Resource Sharing." It is a mechanism that allows a web page to request resources from a different domain than the one that served the page. This is done by adding specific headers to the HTTP request, which indicate that the origin of the request is allowed to access the resource. This is used to prevent cross-site scripting (XSS) attacks, where a malicious website can access resources from another website without the user's knowledge or consent.

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import About from "./components/About";
+import Profile from "./components/Profile";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Header from "./components/Header";
@@ -30,6 +31,13 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          //nested routing
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",

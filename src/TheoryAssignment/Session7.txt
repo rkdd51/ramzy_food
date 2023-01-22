@@ -1,0 +1,11 @@
+)------>What is SPA ?
+-->SPA stands for "Single-Page Application." It is a type of web application that loads a single HTML page and dynamically updates the content as the user interacts with the application. This is in contrast to traditional web applications, which require a full page reload each time the user navigates to a new page or performs an action. SPAs use JavaScript frameworks and libraries, such as React, Angular, or Vue, to dynamically update the content of the page and provide a smooth, fast, and responsive user experience.
+
+)--------------->Client side routing vs server side routing ?
+-->Client-side routing and server-side routing are two different methods of handling navigation within a web application.
+
+Client-side routing is when the routing is handled by JavaScript on the client-side (i.e. the browser). This means that when a user clicks on a link or enters a URL, the JavaScript updates the URL displayed in the browser's address bar, and the JavaScript code updates the content displayed on the page, without the need for a full page reload. This approach is typically used in Single Page Applications (SPAs) and is considered to provide a faster and more responsive user experience.
+
+Server-side routing is when the routing is handled by the web server. This means that when a user clicks on a link or enters a URL, the browser sends a request to the web server, which then returns the appropriate HTML page. This approach is typically used in traditional multi-page web applications, and it requires a full page reload each time the user navigates to a new page.
+
+Both client-side and server-side routing have their own advantages and disadvantages depending on the use case and the requirements of the application.

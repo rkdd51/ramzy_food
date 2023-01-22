@@ -13,10 +13,12 @@ const RestaurantMenu = () => {
     let json = await apiCall.json();
 
     setRestaurantMenu(json.data.cards[0].card.card.info);
-    console.log("json.data: ", json.data.cards[0].card.card.info);
+    // console.log("json.data: ", json.data.cards[0].card.card.info);
   }
+  // console.log(useState(), "useState()");
   useEffect(() => {
     getRestaurantMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -28,6 +30,7 @@ const RestaurantMenu = () => {
       />
       <h1>Name : {restaurantMenu?.name}</h1>
       <h1>Average rating : {restaurantMenu?.avgRating}</h1>
+      <h1>Cuisines : {restaurantMenu?.cuisines.join(",")}</h1>
     </div>
   );
 };
