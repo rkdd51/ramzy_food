@@ -1,36 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CONST_URL } from "../Config/config";
+import useFetch from "../utils/useFetch";
 const RestaurantMenu = () => {
   let params = useParams();
   let { id } = params;
-  const [restaurantMenu, setRestaurantMenu] = useState(null);
 
-  async function getRestaurantMenu() {
-    let apiCall = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=${id}&submitAction=ENTER`
-    );
-    let json = await apiCall.json();
+  const apiFetchedDataForRestaurantMenu = useFetch(id);
 
-    setRestaurantMenu(json.data.cards[0].card.card.info);
-    // console.log("json.data: ", json.data.cards[0].card.card.info);
-  }
-  // console.log(useState(), "useState()");
-  useEffect(() => {
-    getRestaurantMenu();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div>
-      <h1>{restaurantMenu?.id} : Restaurant id</h1>
+      <h1>{apiFetchedDataForRestaurantMenu?.id} : Restaurant id</h1>
       <img
-        src={IMG_CONST_URL + restaurantMenu?.cloudinaryImageId}
+        src={IMG_CONST_URL + apiFetchedDataForRestaurantMenu?.cloudinaryImageId}
         style={{ height: "200px" }}
         alt="Restaurant Menu"
       />
-      <h1>Name : {restaurantMenu?.name}</h1>
-      <h1>Average rating : {restaurantMenu?.avgRating}</h1>
-      <h1>Cuisines : {restaurantMenu?.cuisines.join(",")}</h1>
+      <h1>Name : {apiFetchedDataForRestaurantMenu?.name}</h1>
+      <h1>Average rating : {apiFetchedDataForRestaurantMenu?.avgRating}</h1>
+      <h1>Cuisines : {apiFetchedDataForRestaurantMenu?.cuisines.join(",")}</h1>
     </div>
   );
 };

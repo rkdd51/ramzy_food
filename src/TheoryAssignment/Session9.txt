@@ -1,0 +1,4 @@
+)----------------->When and why do we need lazy loading in react?
+-->Lazy loading is a technique used in React to load components only when they are needed, rather than loading all components at once when the application first loads. This can improve the overall performance and reduce the initial load time of the application. The main use case for lazy loading is to only load components that are visible or likely to be needed by the user, such as when the user navigates to a new page or section of the application. This can be done by using React's lazy() and Suspense components, which allow you to load components dynamically when they are needed.
+
+

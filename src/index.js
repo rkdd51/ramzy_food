@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import About from "./components/About";
 import Profile from "./components/Profile";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
@@ -8,7 +7,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
+// import About from "./components/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Shimmer from "./components/Shimmer";
+const About = lazy(() => import("./components/About"));
 function AppLayout() {
   return (
     <div className="App">
@@ -30,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
         children: [
           //nested routing
           {

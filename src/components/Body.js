@@ -4,7 +4,8 @@ import "../index.css";
 import RestaurantsCard from "./RestaurantsCard";
 // import { restaurantList } from "../Config/config";
 import Shimmer from "./Shimmer";
-
+import useBodyApiCall from "../utils/useBodyApiCall";
+import useOnline from "../utils/useOnline";
 function filterData(searchInput, localRestaurant) {
   let filteredValues = localRestaurant.filter((res) =>
     res.data.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -12,23 +13,16 @@ function filterData(searchInput, localRestaurant) {
   return filteredValues;
 }
 const Body = () => {
-  const [allRestaurant, setAllRestaurant] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
-  async function getRestaurant() {
-    const apiData = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await apiData.json();
-    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-  }
-  useEffect(() => {
-    getRestaurant();
-  }, []);
+  let { allRestaurant, filteredRestaurant, setFilteredRestaurant } =
+    useBodyApiCall();
   // if (filteredRestaurant.length === 0) return <h1>No such restaurant found</h1>;
   // if (allRestaurant.length === 0) return null;
+  const online = useOnline();
+  if (!online) {
+    return <h1>Hey , Please check your internet connection</h1>;
+  }
   return allRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
