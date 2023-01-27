@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
 import RestaurantsCard from "./RestaurantsCard";
@@ -17,8 +17,7 @@ const Body = () => {
 
   let { allRestaurant, filteredRestaurant, setFilteredRestaurant } =
     useBodyApiCall();
-  // if (filteredRestaurant.length === 0) return <h1>No such restaurant found</h1>;
-  // if (allRestaurant.length === 0) return null;
+
   const online = useOnline();
   if (!online) {
     return <h1>Hey , Please check your internet connection</h1>;

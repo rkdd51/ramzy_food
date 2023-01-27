@@ -8,10 +8,14 @@ const useFetch = (id) => {
 
   async function getRestaurantMenu() {
     let apiCall = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=${id}&submitAction=ENTER`
+      `https://www.swiggy.com/dapi/menu/v4/full?lat=18.5204303&lng=73.8567437&menuId=${id}`
     );
     let json = await apiCall.json();
-    setRestaurantMenu(json.data.cards[0].card.card.info);
+    // eslint-disable-next-line no-lone-blocks
+
+    console.log("json: ", Object.values(json.data.menu.items));
+
+    setRestaurantMenu(json.data);
   }
   return restaurantMenu;
 };
