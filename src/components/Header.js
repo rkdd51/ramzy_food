@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const Title = () => {
   return (
     <>
       <div>
         <a href="/">
           <img
-            className="logo"
+            className="w-[80px]"
             alt="logo"
             src="https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png"
           />
@@ -19,34 +19,58 @@ const Title = () => {
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <div className="header">
-      <Link to="/">
+    <div className="flex justify-between border border-slate-700 p-2 m-2  ">
+      <NavLink to="/">
         <Title />
-      </Link>
-      <div className="nav-items">
-        <ul>
+      </NavLink>
+      <div className="flex gap-2=3">
+        <ul className="flex  gap-3 pt-7  ">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "bg-fuchsia-400 rounded-lg p-2" : "bg-white"
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "bg-fuchsia-400 rounded-lg p-2" : "bg-white"
+              }
+            >
+              About
+            </NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "bg-fuchsia-400 rounded-lg p-2" : "bg-white"
+              }
+            >
+              Contact
+            </NavLink>
           </li>
           <li>Cart</li>
+          <li>
+            {
+              <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+                {isLoggedIn ? "Login" : "Logout"}
+              </button>
+            }
+          </li>
         </ul>
       </div>
+
       {/* {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>
       ) : (
         <button onClick={() => setIsLoggedIn(true)}>Login</button>
       )} */}
-      {
-        <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
-          {isLoggedIn ? "Login" : "Logout"}
-        </button>
-      }
     </div>
   );
 };

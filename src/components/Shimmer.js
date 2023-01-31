@@ -2,11 +2,11 @@ import React from "react";
 import "../index.css";
 const Shimmer = () => {
   return (
-    <div className="resCard">
+    <div className="flex flex-wrap">
       {Array(20)
         .fill("")
         .map((e, i) => (
-          <div className="shimmer" key={i}></div>
+          <div className="bg-gray-300 h-[300px] w-[200px] m-2" key={i}></div>
         ))}
     </div>
   );

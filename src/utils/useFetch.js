@@ -13,7 +13,7 @@ const useFetch = (id) => {
     let json = await apiCall.json();
     // eslint-disable-next-line no-lone-blocks
 
-    console.log("json: ", Object.values(json.data.menu.items));
+    // console.log("json: ", Object.values(json.data.menu.items));
 
     setRestaurantMenu(json.data);
   }
