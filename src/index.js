@@ -10,6 +10,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 // import About from "./components/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
+import Instamart from "./components/Instamart";
 const About = lazy(() => import("./components/About"));
 function AppLayout() {
   return (
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/instamart",
+        element: <Instamart />,
       },
     ],
   },

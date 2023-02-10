@@ -55,6 +55,16 @@ const Header = () => {
               Contact
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/instamart"
+              className={({ isActive }) =>
+                isActive ? "bg-fuchsia-400 rounded-lg p-2" : "bg-white"
+              }
+            >
+              InstaMart
+            </NavLink>
+          </li>
           <li>Cart</li>
           <li>
             {

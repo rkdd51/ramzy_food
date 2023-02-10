@@ -8,6 +8,9 @@ import useBodyApiCall from "../utils/useBodyApiCall";
 import useOnline from "../utils/useOnline";
 
 const Body = () => {
+  let { allRestaurant, filteredRestaurant, setFilteredRestaurant } =
+    useBodyApiCall();
+  const online = useOnline();
   const [searchInput, setSearchInput] = useState("");
   function filterData(searchInput, allRestaurant) {
     let filteredValues = allRestaurant?.filter((res) =>
@@ -16,17 +19,10 @@ const Body = () => {
     return filteredValues;
   }
 
-  let { allRestaurant, filteredRestaurant, setFilteredRestaurant } =
-    useBodyApiCall();
-
-  const online = useOnline();
   if (!online) {
     return <h1>Hey , Please check your internet connection</h1>;
   }
 
-  // if (filteredRestaurant.length === 0) return <h1>No data found</h1>;
-
-  if (!allRestaurant) return null;
   return allRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
