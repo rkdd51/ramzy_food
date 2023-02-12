@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Profile from "./components/Profile";
 import Contact from "./components/Contact";
@@ -11,13 +11,26 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
 import Instamart from "./components/Instamart";
+import UserContext from "./utils/UserContext";
 const About = lazy(() => import("./components/About"));
 function AppLayout() {
+  const [data, setData] = useState({
+    name: "Dummy User",
+    email: "dummy@dummy.com",
+  });
+
   return (
     <div className="App">
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider
+        value={{
+          data: data,
+          setData: setData,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 }

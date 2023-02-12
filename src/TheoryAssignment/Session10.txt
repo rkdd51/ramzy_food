@@ -1,0 +1,6 @@
+)--------> Ways of writing css ?
+-->Internal, Inline,External,CSS Modules,Sass.  
+
+)---------->In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
+-->  https://tailwindcss.com/docs/configuration
+
