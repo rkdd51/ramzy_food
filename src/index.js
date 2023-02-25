@@ -11,7 +11,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
 import Instamart from "./components/Instamart";
-const About = lazy(() => import("./components/About"));
+const About = lazy(() => import("./components/About")); //This is a promise.
 function AppLayout() {
   return (
     <div className="App">

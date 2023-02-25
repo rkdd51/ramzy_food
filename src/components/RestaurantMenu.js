@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CONST_URL } from "../Config/config";
 import useFetch from "../utils/useFetch";
@@ -34,11 +33,15 @@ const RestaurantMenu = () => {
         </div>
       </div>
       <h1 className="font-bold text-3xl mt-3 ">Menu</h1>
-      <div className="flex flex-wrap gap-6">
+      <div className="ml-2">
         {Object.values(apiFetchedDataForRestaurantMenu?.menu?.items).map(
-          (val) => (
-            <div className="h-auto w-[100px] border border-slate-500 p-2 rounded-lg mt-2">
-              <li key={val.id}> {val?.name}</li>
+          (val, i) => (
+            <div key={i}>
+              <li key={val.id}>
+                {" "}
+                {val?.name}{" "}
+                <button className="border border-blue-700 p-2">Add</button>
+              </li>
             </div>
           )
         )}

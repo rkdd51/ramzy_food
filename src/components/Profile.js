@@ -15,7 +15,7 @@ class Profile extends React.Component {
     }, 1000);
   }
   componentDidUpdate() {
-    console.log("componentDidUpdate: "); // This will be called when we update the state
+    console.log("componentDidUpdate"); // This will be called when we update the state
   }
   componentWillUnmount() {
     console.log("componentWillUnmount"); //This will be called when the route  is changed

@@ -20,10 +20,14 @@ const Body = () => {
   }
 
   if (!online) {
-    return <h1>Hey , Please check your internet connection</h1>;
+    return (
+      <h1 className="font-bold text-2xl m-20">
+        Bhai apka internet check kar lo ek bar
+      </h1>
+    );
   }
 
-  return allRestaurant?.length === 0 ? (
+  return online && allRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
