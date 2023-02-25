@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "../index.css";
 import RestaurantsCard from "./RestaurantsCard";
@@ -6,8 +6,10 @@ import RestaurantsCard from "./RestaurantsCard";
 import Shimmer from "./Shimmer";
 import useBodyApiCall from "../utils/useBodyApiCall";
 import useOnline from "../utils/useOnline";
-
+import UserContext from "../utils/UserContext";
 const Body = () => {
+  const { data, setData } = useContext(UserContext);
+  console.log("ser, setUser: ", data, setData);
   let { allRestaurant, filteredRestaurant, setFilteredRestaurant } =
     useBodyApiCall();
   const online = useOnline();
@@ -49,6 +51,16 @@ const Body = () => {
           Search
         </button>
       </div>
+      <input
+        className="bg-red-100 border border-black m-2 p-1 rounded-lg"
+        value={data.name}
+        onChange={(e) =>
+          setData({
+            name: e.target.value,
+            email: "rdubey@gmail.com",
+          })
+        }
+      />
       <div className="flex flex-wrap ">
         {filteredRestaurant.length === 0 ? (
           <h1>No data found</h1>

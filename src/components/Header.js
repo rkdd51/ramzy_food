@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
+
 const Title = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const Title = () => {
 };
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="flex justify-between border border-slate-700 p-2 m-2  ">
       <NavLink to="/">
