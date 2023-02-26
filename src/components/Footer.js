@@ -7,9 +7,12 @@ const Footer = () => {
 
   return (
     <>
-      <div className="font-bold text-2xl flex justify-center mt-10">Footer</div>
-      ;<p>{data?.name}</p>
-      <p>{data?.email}</p>
+      <div className="font-bold text-2xl flex justify-center mt-10">
+        <div> Footer</div>
+        <hr />
+        <p>{data?.name}</p>
+        <p>{data?.email}</p>
+      </div>
     </>
   );
 };
