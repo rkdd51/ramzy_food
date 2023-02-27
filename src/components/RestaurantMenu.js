@@ -2,10 +2,15 @@ import { useParams } from "react-router-dom";
 import { IMG_CONST_URL } from "../Config/config";
 import useFetch from "../utils/useFetch";
 import Shimmer from "./Shimmer";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 const RestaurantMenu = () => {
   let params = useParams();
   let { id } = params;
-
+  const dispatch = useDispatch();
+  const handleCart = (itemsData) => {
+    dispatch(addItem(itemsData));
+  };
   const apiFetchedDataForRestaurantMenu = useFetch(id);
   // \if (!apiFetchedDataForRestaurantMenu) return <Shimmer />;
   return !apiFetchedDataForRestaurantMenu ? (
@@ -40,7 +45,12 @@ const RestaurantMenu = () => {
               <li key={val.id}>
                 {" "}
                 {val?.name}{" "}
-                <button className="border border-blue-700 p-2">Add</button>
+                <button
+                  className="border border-blue-700 p-2"
+                  onClick={() => handleCart(val)}
+                >
+                  Add
+                </button>
               </li>
             </div>
           )

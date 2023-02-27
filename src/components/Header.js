@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Title = () => {
   return (
@@ -19,7 +20,8 @@ const Title = () => {
 };
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const cartItem = useSelector((store) => store.cart.items);
+  console.log("cartItem: ", cartItem);
   return (
     <div className="flex justify-between border border-slate-700 p-2 m-2  ">
       <NavLink to="/">
@@ -67,7 +69,16 @@ const Header = () => {
               InstaMart
             </NavLink>
           </li>
-          <li>Cart</li>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? "bg-fuchsia-400 rounded-lg p-2" : "bg-white"
+            }
+          >
+            {" "}
+            <li>Cart - {cartItem.length}</li>
+          </NavLink>
+
           <li>
             {
               <button onClick={() => setIsLoggedIn(!isLoggedIn)}>

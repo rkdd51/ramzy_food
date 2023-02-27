@@ -4,6 +4,7 @@ const useFetch = (id) => {
   const [restaurantMenu, setRestaurantMenu] = useState(null);
   useEffect(() => {
     getRestaurantMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function getRestaurantMenu() {
